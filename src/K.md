@@ -4,9 +4,12 @@ title: K-Theory
 
 ### [Content](https://master-math-fonda.imj-prg.fr/gt/K.pdf)
 
+Please contact Titouan Olivier-Choupin at \``titouoc` at `gmail.com`\` to join.
+
 ## Lectures
 
-1. [Lecture 1](lectures/K1.pdf) by Titouan Olivier-Choupin
+1. [Lecture 1](lectures/K1.pdf) by Titouan Olivier-Choupin - 01/10/2025, 16h, ENS Ulm Salle W
+2. [Lecture 2](lectures/K1.pdf) by Titouan Olivier-Choupin - 08/10/2025, 16h, ENS Ulm Salle Verdier
 
 ## References :
 
