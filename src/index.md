@@ -11,7 +11,7 @@ The source is hosted on [Github](https://github.com/M2Fonda-gt/M2Fonda-gt.github
 
 ### Ongoing
 
-- [Géométrie Algébrique Dérivée](dga.html)
+- [Géométrie Algébrique Dérivée](dag.html)
 - [K-théorie](K.html)
 
 ### Proposed

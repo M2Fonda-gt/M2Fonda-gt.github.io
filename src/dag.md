@@ -9,7 +9,7 @@ Please contact Marine Cases at \``marinecases345` at `gmail.com`\` to join.
 ## Lectures
 
 1. Lecture 1 by Tomás Fernández (guest) - 02/10/2025, 18h30, Jussieu 15-25-102
-2. [Lecture 2](lectures/dga2.pdf) by Alexis Miller - 08/10/2025, 18h30, Jussieu 15-25-102
+2. [Lecture 2](lectures/dag2.pdf) by Alexis Miller - 08/10/2025, 18h30, Jussieu 15-25-102
 
 ## References :
 
