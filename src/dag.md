@@ -11,6 +11,11 @@ Please contact Marine Cases at \``marinecases345` at `gmail.com`\` to join.
 1. Lecture 1 by Tomás Fernández (guest) - 02/10/2025, 18h30, Jussieu 15-25-102
 2. [Lecture 2](lectures/dag2.pdf) by Alexis Miller - 08/10/2025, 18h30, Jussieu 15-25-102
 
+### Future lectures
+
+3. Lecture 3 by Davit Harutyunyan - 15/10/2025, 18h10, Jussieu 15-25-102
+4. Lecture 4 by Justin Carel - 22/10/2025, 18h10, Jussieu 15-25-102
+
 ## References :
 
 - [_$\infty$-categories: A First Course_](https://mgallauer.warwick.ac.uk/teaching/23icats/) - Martin Gallauer
