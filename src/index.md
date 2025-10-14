@@ -17,3 +17,4 @@ The source is hosted on [Github](https://github.com/M2Fonda-gt/M2Fonda-gt.github
 ### Proposed
 
 - [Faisceaux cohérents et super-connexions](sheaves.html)
+- [Hyperkähler geometry](hyper.html)
