@@ -12,9 +12,10 @@ The source is hosted on [Github](https://github.com/M2Fonda-gt/M2Fonda-gt.github
 ### Ongoing
 
 - [Géométrie Algébrique Dérivée](dag.html)
+- [Hyperkähler geometry](hyper.html)
 - [K-théorie](K.html)
+- [Minimal Model Program](mmpshort.html)
 
 ### Proposed
 
 - [Faisceaux cohérents et super-connexions](sheaves.html)
-- [Hyperkähler geometry](hyper.html)

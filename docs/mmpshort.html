@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            Minimal Model Program
+        </title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="./css/default.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="./">Groupes de Travail</a>
+            </div>
+            <nav>
+                <a href="./dag.html">DAG</a>
+                <a href="./hyper.html">HG</a>
+                <a href="./K.html">K-Théorie</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            
+                <h1>Minimal Model Program</h1>
+            
+            <p>Call for speakers. Please contact Bojin Han at <em><code>bojin.han</code> at <code>ens.psl.eu</code></em> to join.</p>
+<h2 id="why-minimal-model-program">Why minimal model program?</h2>
+<p><em>We want to classify all algebraic varieties!</em></p>
+<p>But it’s <strong>impossible</strong>, we can not even classify all smooth algebraic varieties (or even manifold) up to homeomorphism :(</p>
+<blockquote>
+<p>Manifolds in dimension 4 and above cannot be effectively classified: Given two <span class="math inline">\(n\)</span>-manifolds (<span class="math inline">\(n \geq 4\)</span>) presented as CW complexes, there is no algorithm for determining if they are homeomorphic / diffeomorphic. This is due to the unsolvability of the word problem for groups. <a href="https://en.wikipedia.org/wiki/Classification_of_manifolds#Computability">Click Here</a></p>
+</blockquote>
+<p>Hence we have to find a better notation, just like homotopy, which is birational equivalence.</p>
+<h3 id="examples-of-birational-transform">Examples of birational transform</h3>
+<ol type="1">
+<li>normalization;</li>
+<li>blow up;</li>
+<li>Veronese map of <span class="math inline">\(\mathbb P^n\times \mathbb P^m\to \mathbb P^{n + m}\)</span>;</li>
+<li>etc.</li>
+</ol>
+<p>But acturally they all look like blow up: birational equivalence between <span class="math inline">\(\mathbb P^1\times \mathbb P^1\subset \mathbb P^3\)</span> and <span class="math inline">\(\mathbb P^2\)</span> is exactly the blow up of <span class="math inline">\(\mathbb P^2\)</span>! So how important is blow up?</p>
+<h3 id="theorem-hart-theorem-v.5.5">Theorem [Hart, Theorem V.5.5]</h3>
+<p>Let <span class="math inline">\(T\colon X \to X'\)</span> be a birational transformation of <strong>surfaces</strong>. Then
+it is possible to factor T into a finite sequence of monoidal transformations (blow down)
+and their inverses (blow up).</p>
+<hr />
+<p>So now we are going to examine blow up. The self-intersection number of the exceptional divisor is <span class="math inline">\(-1\)</span>, and the converse also holds:</p>
+<h3 id="theorem-castelnuovo-hart-theorem-v.5.7">Theorem (Castelnuovo, [Hart, Theorem V.5.7])</h3>
+<p>If <span class="math inline">\(E\)</span> is a rational curve on a surface <span class="math inline">\(Y\)</span> with self-intersection number <span class="math inline">\(-1\)</span>, then there exists a surface <span class="math inline">\(X\)</span> and a birational morphism (monoidal transformation, i.e. blow down) <span class="math inline">\(f : Y \to X\)</span> such that the exceptional divisor corresponding to <span class="math inline">\(f\)</span> is exactly <span class="math inline">\(E\)</span>.</p>
+<hr />
+<p>Thus, by continuously contracting exceptional divisors, one can simplify the surface until there are no rational curves with negative self-intersection left.<br />
+The culmination of this idea is the <strong>Enriques classification</strong>, proposed in the 19th century: by using the Kodaira dimension, the genus, and the irregularity number, one can determine the corresponding minimal model.</p>
+<p>In the early 20th century, <strong>Kuni­hiko Kodaira</strong> rigorized the intuitive proofs of the Italian school using modern language, for which he was awarded the <strong>Fields Medal</strong>.</p>
+<hr />
+<p>So now the question is: can we do the same for higher dimensional algebraic varieties? This is what minimal model program (mmp) talks about.</p>
+<p>The difficulty in higher dimensions lies in the fact that the blow-up is not unique, and the notion of self-intersection no longer makes sense.</p>
+<p>Until 1981, <strong>Shigefumi Mori</strong> solved <strong>Hartshorne’s conjecture</strong> and discovered that instead of considering self-intersection numbers, we can study the intersection with the canonical divisor <span class="math inline">\(K_X\)</span>.</p>
+<h3 id="theorem-contraction-theorem-smooth-version.">Theorem (Contraction Theorem, Smooth Version).</h3>
+<p>Let <span class="math inline">\(X\)</span> be a projective algebraic variety, and let <span class="math inline">\(F \subset \overline{NE}(X)\)</span> be a <span class="math inline">\(K_X\)</span>-negative extremal ray. Then, up to isomorphism, there exists a unique projective variety <span class="math inline">\(Z\)</span> and a unique morphism <span class="math inline">\(\operatorname{cont}_F : X \to Z\)</span> such that <span class="math inline">\((\operatorname{cont}_F)_* \mathcal{O}_Z = \mathcal{O}_X\)</span>, and for any irreducible curve <span class="math inline">\(C\)</span>, we have <span class="math inline">\(\operatorname{cont}_F(C)\)</span> is a point if and only if <span class="math inline">\(C \in F\)</span>.</p>
+<p>Mori was awarded the <strong>Fields Medal in 1990</strong> for this result.<br />
+Moreover, Mori’s original proof is difficult to generalize to dimensions four and higher. The higher-dimensional cases were later developed by <strong>Kawamata</strong>, <strong>Reid</strong>, <strong>Kollár</strong>, <strong>Birkar</strong>, and others.</p>
+<hr />
+<p>However, the <strong>Minimal Model Program (MMP)</strong> was still far from complete, since there are three types of contractions, and in one of them the image is not klt (recall that klt requires <span class="math inline">\(K\)</span> to be <span class="math inline">\(\mathbb{Q}\)</span>-Cartier):</p>
+<ol type="1">
+<li><strong>Fibre contraction</strong>: <span class="math inline">\(\dim \mathrm{cont}(X) &lt; \dim X\)</span>.
+In this case, <span class="math inline">\(X\)</span> is a ruled variety over <span class="math inline">\(\mathrm{cont}(X)\)</span>, corresponding to Mori’s first case (1981).</li>
+<li><strong>Divisorial contraction</strong>: the exceptional locus of <span class="math inline">\(\mathrm{cont}\)</span> is a divisor, corresponding to Mori’s second case.</li>
+<li><strong>Small contraction</strong>: the exceptional locus has codimension at least two, which does not occur for smooth threefolds.</li>
+</ol>
+<p>For small contractions, the image <span class="math inline">\(Y := \mathrm{cont}(X)\)</span> has a canonical divisor <span class="math inline">\(K_Y\)</span> that is <strong>not <span class="math inline">\(\mathbb{Q}\)</span>-Cartier</strong>.
+Indeed, if <span class="math inline">\(K_Y\)</span> were <span class="math inline">\(\mathbb{Q}\)</span>-Cartier, then for any contracted curve <span class="math inline">\(l\)</span> we would have
+<span class="math display">\[
+K_X \cdot l = \mathrm{cont}^*K_Y \cdot l = 0,
+\]</span>
+contradicting the fact that <span class="math inline">\(K_X \cdot l &lt; 0\)</span>.</p>
+<hr />
+<p>To solve this issue, one introduces a new variety <span class="math inline">\(X^+\)</span> satisfying certain properties, called a <strong>flip</strong>.</p>
+<p>Here we give an example [KM, Example 2.7]</p>
+<h3 id="example-of-flip">Example of flip</h3>
+<p>Consider the three-dimensional algebraic variety
+<span class="math inline">\(Y = \{(x, y, z, w) \in \mathbb{C}^4 \mid xy = zw\}\)</span>.
+Recall that it has a <strong>log canonical singularity</strong> at the origin.
+Let <span class="math inline">\(\tilde{X}\)</span> be the <strong>blow-up of <span class="math inline">\(Y\)</span> at the origin</strong>.
+By definition, the <strong>exceptional divisor</strong> <span class="math inline">\(Q\)</span> is the surface
+<span class="math inline">\(xy - zw = 0\)</span> in <span class="math inline">\(\mathbb{P}^3\)</span>.
+This is a <strong>ruled surface</strong>, which can be viewed as the <strong>Veronese embedding</strong> of
+<span class="math inline">\(\mathbb{P}^1 \times \mathbb{P}^1\)</span>.
+In other words, the two copies of <span class="math inline">\(\mathbb{P}^1\)</span> can be identified respectively with
+<span class="math inline">\((x : z)\)</span> and <span class="math inline">\((y : w)\)</span>.</p>
+<p>Now, consider the two three-dimensional varieties obtained by <strong>contracting each of the two different <span class="math inline">\(\mathbb{P}^1\)</span>’s</strong> in <span class="math inline">\(Y\)</span>.
+Denote them by <span class="math inline">\(X\)</span> and <span class="math inline">\(X^+\)</span>.
+By the universal property of blow-ups, there exist <strong>canonical morphisms</strong>
+<span class="math inline">\(X \to Y\)</span> and <span class="math inline">\(X^+ \to Y\)</span>.
+Let <span class="math inline">\(C\)</span> and <span class="math inline">\(C^+\)</span> be the <strong>exceptional loci</strong> of these two morphisms.
+By definition, both are isomorphic to <span class="math inline">\(\mathbb{P}^1\)</span>.</p>
+<p>On <span class="math inline">\(X\)</span>, the locus <span class="math inline">\(y = w = 0\)</span> is contracted to a point, while <span class="math inline">\(x = z = 0\)</span> remains unchanged.
+On <span class="math inline">\(X^+\)</span>, the situation is reversed: <span class="math inline">\(x = z = 0\)</span> is contracted to a point, while <span class="math inline">\(y = w = 0\)</span> remains unchanged.
+The following diagram illustrates the situation.</p>
+<p>Now consider the action of the cyclic group <span class="math inline">\(\mathbb{Z}/n\mathbb{Z}\)</span> on <span class="math inline">\(\mathbb{C}^4\)</span>:
+<span class="math inline">\((x, y, z, w) \mapsto (\zeta_n x, y, \zeta_n z, w)\)</span>,
+where <span class="math inline">\(\zeta_n\)</span> is an <span class="math inline">\(n\)</span>-th root of unity.
+This action preserves <span class="math inline">\(Y\)</span>, and the fixed loci in <span class="math inline">\(Y\)</span> are the planes
+<span class="math inline">\(x = z = 0\)</span> and <span class="math inline">\(y = w = 0\)</span>.
+Denote the quotient variety by <span class="math inline">\(Y_n\)</span>.</p>
+<p>By the universal property of the blow-up, the action of <span class="math inline">\(\mathbb{Z}/n\mathbb{Z}\)</span> also extends to <span class="math inline">\(\tilde{X}\)</span>.
+Restricted to the exceptional divisor <span class="math inline">\(Q\)</span>, the action preserves the two lines <span class="math inline">\(x = z = 0\)</span> and <span class="math inline">\(y = w = 0\)</span> in <span class="math inline">\(\mathbb{P}^3\)</span>.
+Again by the universal property, this induces actions of <span class="math inline">\(\mathbb{Z}/n\mathbb{Z}\)</span> on <span class="math inline">\(X\)</span> and <span class="math inline">\(X^+\)</span>.</p>
+<p>Denote the quotient varieties by <span class="math inline">\(X_n\)</span> and <span class="math inline">\(X_n^+\)</span>.
+It can be seen that these two varieties have very different properties:
+<span class="math inline">\(X_n^+\)</span> is <strong>smooth</strong>, while <span class="math inline">\(X_n\)</span> is <strong>singular</strong>.</p>
+<p>We call <span class="math inline">\(X_n^+\)</span> the <strong>flip</strong> of <span class="math inline">\(X_n \to Y_n\)</span>.</p>
+<hr />
+<p>So now the question is: When flip exists? When it terminates?</p>
+<p>In 1988, Mori proved the <strong>existence of flips in dimension three</strong>.</p>
+<p>Major progress followed in the 21st century:
+in 2003, <strong>Shokurov</strong> proved the existence of flips in dimension four;
+in 2005, <strong>Hacon</strong> and <strong>McKernan</strong> showed that the existence of flips in dimension <span class="math inline">\(n\)</span> implies their existence in dimension <span class="math inline">\(n + 1\)</span>, thus completing the proof of existence for dimension 4;
+and in 2010, the famous paper BCHM established the existence of <strong>log flips</strong> and the <strong>termination</strong> of special flip sequences. But for general termination, the situation remains largely open — the most significant progress is due to <strong>Kawamata</strong>, who proved finiteness for three- and four-dimensional cases.</p>
+<h3 id="theorem-bchm">Theorem (BCHM)</h3>
+<p>Let <span class="math inline">\(X \to U\)</span> be a projective morphism between normal quasi-projective varieties, and let <span class="math inline">\(\Delta\)</span> be a <span class="math inline">\(\mathbb{Q}\)</span>-divisor such that <span class="math inline">\((X, \Delta)\)</span> is a klt pair.
+Then there exists a <span class="math inline">\((K_X + \Delta)\)</span>-MMP on <span class="math inline">\(X\)</span> consisting of finitely many flips and divisorial contractions:
+<span class="math display">\[
+X = X_1 \dashrightarrow X_2 \dashrightarrow \ldots \dashrightarrow X_N
+\]</span>
+such that either <span class="math inline">\(K_{X_N} + \Delta_N\)</span> is nef over <span class="math inline">\(U\)</span>, or there exists a morphism <span class="math inline">\(X_N \to Z\)</span> which is a Mori fiber space.
+(See [HK, Theorem 5.54].)</p>
+<p><strong>Caucher Birkar</strong> was subsequently awarded the <strong>Fields Medal in 2018</strong> for his contributions.</p>
+<hr />
+<p>The target of this gt is study the proof of contraction theorem and the proof of BCHM.</p>
+<h2 id="lectures-planned-each-lecture-about-1h30min-2h">Lectures (planned, each lecture about 1h30min-2h)</h2>
+<ol type="1">
+<li>Varieties and birational morphisms (i.e. [Deb1, Chapitre 1-3] and [Mumf, Chapter 1, 2, 8])</li>
+<li>Regularity and smooth (i.e. [Deb1, Chapitre 4])</li>
+<li>Divisor (i.e. [Deb1, Chapitre 5], [Deb2, Chapter 1], [HK, 2.B] and [Laz, 1.1])</li>
+<li><span class="math inline">\(\mathbb Q-\)</span>Divisor, <span class="math inline">\(\mathbb R-\)</span>Divisor and klt pairs (i.e. [Deb2, 2.1-2.3], [Deb3, 1.1-1.3], [Kaw, 1.1-1.4], [Kaw, 1.10] and [Mat, 2])</li>
+<li>lc, dlt, plt pairs and singularities (i.e [Kaw, 1.11], [Mat] and [HK, 3.A-3.G])</li>
+<li>Positivity: ample and cone (i.e. [Deb1, 6.5], [Laz, 1.2A], [KM, 1.5] and [Deb3, 1.4, 1.5, 1.7])</li>
+<li>Positivity: nef, big, pseudo-effective, and relative sense. (i.e. [Deb3, 1.5-1.9] and [HK, Chapter 2])</li>
+<li>Vanishing theorems and induction process (i.e. [HK, 3.H])</li>
+<li>Non-vanishing and basepoint free</li>
+<li>to be continued…</li>
+</ol>
+<h2 id="references">References</h2>
+<ul>
+<li>[Bea] Complex Algebraic Surfaces (Arnaud Beauville)</li>
+<li>[Hart] Algebraic Geometry (Robin Hartshorne)</li>
+<li>[Deb1] <a href="https://perso.imj-prg.fr/olivier-debarre/wp-content/uploads/debarre-pub/DEA99.pdf">Intoduction à la Geometrie Algèbrique</a> (Olivier Debarre, polycopie)</li>
+<li>[Deb2] <a href="https://www.math.ens.psl.eu/~debarre/M2.pdf">Introduction to Mori Theory</a> (Olivier Debarre, polycopie)</li>
+<li>[Laz] Positivity in Algebraic Geometry I (Robert Lazarsfeld)</li>
+<li>[Deb3] Higher dimensional algebraic geometry (Olivier Debarre)</li>
+<li>[KM] <strong>Birational Geometry of Algebraic Varieties (Janos Kollár, Shigefumi Mori)</strong></li>
+<li>[Mat] Introduction to the Mori Program (Kenji Matsuki)</li>
+<li>[HK] <strong>Classification of Higher Dimensional Algebraic Varieties (Christopher D. Hacon, Sándor J. Kovács)</strong></li>
+<li>[AC] Flips for 3-folds and 4-folds (Alessio Corti (Editor))</li>
+<li>[Kaw] Algebraic Varieties Minimal Models and Finite Generation (Yujiro Kawamata)</li>
+<li>[Mumf] Complex Projective Varieties (David Mumford)</li>
+</ul>
+        </main>
+
+        <footer>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </footer>
+    </body>
+</html>
