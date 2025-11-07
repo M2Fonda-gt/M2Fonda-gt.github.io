@@ -8,7 +8,7 @@ Please contact Alexis Roeckel at \``fac.alexis.roeckel` at `gmail.com`\` to join
 
 ## Lectures
 
-- [Lecture 1](lectures/hyper1.pdf) by Paul Lemarchand - 05/11/2025, 17h, Jussieu 15-25-502
+- [Lecture 1](lectures/hyper1.pdf) ([slides](lectures/hyper1_slides.pdf)) by Paul Lemarchand - 05/11/2025, 17h, Jussieu 15-25-502
 
 ### Future lectures
 
