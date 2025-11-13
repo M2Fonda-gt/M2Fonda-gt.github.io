@@ -11,10 +11,12 @@ Please contact Marine Cases at \``marinecases345` at `gmail.com`\` to join.
 1. Lecture 1 by Tomás Fernández (guest) - 02/10/2025, 18h30, Jussieu 15-25-102
 2. [Lecture 2](lectures/dag2.pdf) by Alexis Miller - 08/10/2025, 18h30, Jussieu 15-25-102
 3. [Lecture 3](lectures/dag3.pdf) by Davit Harutyunyan - 15/10/2025, 18h10, Jussieu 15-25-102
+4. [Lecture 4](lectures/dag4.pdf) by Justin Carel - 05/11/2025, 18h45, Jussieu 15-25-102
+5. Lecture 5 by Luc Saccoccio--Le Guennec - 13/11/2025, 18h10, Jussieu 15-25-102
 
 ### Future lectures
 
-4. Lecture 4 by Justin Carel - 22/10/2025, 18h10, Jussieu 15-25-102
+6. Lecture 6 by Paul - 22/10/2025, 18h10, Jussieu 15-25-102
 
 ## References :
 
