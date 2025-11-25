@@ -8,7 +8,11 @@ Please contact Achille De Riddler at \``achille.de.riddler` at `ens.psl.eu`\` or
 
 ## Lectures
 
+1. [Lectures 1](lectures/groups1.pdf) by Eliot Martin - 25/11/2025, 18h, Jussieu 15-25-102
+
 ### Future lectures
+
+2. [Lecture 2](lectures/groups1.pdf) by ? - 02/12/2025, 18h, Jussieu 15-25-102
 
 ## References :
 
