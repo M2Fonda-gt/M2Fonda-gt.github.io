@@ -14,10 +14,11 @@ Please contact Marine Cases at \``marinecases345` at `gmail.com`\` to join.
 4. [Lecture 4](lectures/dag4.pdf) by Justin Carel - 05/11/2025, 18h45, Jussieu 15-25-102
 5. [Lecture 5](lectures/dag5.pdf) by Luc Saccoccio--Le Guennec - 13/11/2025, 15h, ENS Ulm R3
 6. Lecture 6 by Paul - 20/10/2025, 15h30, ENS Ulm R3
+7. Lecture 7 by Luc Saccoccio--Le Guennec - 27/11/2025, 15h30, ENS Ulm R3
 
 ### Future lectures
 
-7. Lecture 7 by Luc Saccoccio--Le Guennec - 27/11/2025, 15h, ENS Ulm R3
+8. Lecture 8 by Davit Harutyunyan, 04/12/2025, 15h30, ENS Ulm R3
 
 ## References :
 
