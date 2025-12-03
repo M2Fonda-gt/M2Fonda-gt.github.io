@@ -18,7 +18,7 @@ Please contact Marine Cases at \``marinecases345` at `gmail.com`\` to join.
 
 ### Future lectures
 
-8. Lecture 8 by Davit Harutyunyan, 04/12/2025, 15h30, ENS Ulm R3
+8. Lecture 8 by Grégoire, 04/12/2025, 15h30, ENS Ulm R3
 
 ## References :
 
