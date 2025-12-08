@@ -4,15 +4,17 @@ title: Groups and curvature
 
 ### [Content](https://master-math-fonda.imj-prg.fr/gt/groups.pdf)
 
-Please contact Achille De Riddler at \``achille.de.riddler` at `ens.psl.eu`\` or Eliot Martin at  \``eliot.martin` at `ens-paris-saclay.fr`\` to join.
+Please contact Achille De Ridder at \``achille.de.ridder` at `ens.psl.eu`\` or Eliot Martin at  \``eliot.martin` at `ens-paris-saclay.fr`\` to join.
 
 ## Lectures
 
 1. [Lecture 1](lectures/groups1.pdf) by Eliot Martin - 25/11/2025, 18h, Jussieu 15-25-102
+2. [Lecture 2](lectures/groups2.pdf) by Achille De Ridder - 02/12/2025, 18h, Jussieu 15-25-102
 
 ### Future lectures
 
-2. [Lecture 2](lectures/groups1.pdf) by ? - 02/12/2025, 18h, Jussieu 15-25-102
+3. Lecture 3 by Ali El Maliki - 18h, Jussieu 15-25-102
+
 
 ## References :
 
