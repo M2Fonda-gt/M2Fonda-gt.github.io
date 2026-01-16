@@ -13,6 +13,7 @@ Please contact Alexis Roeckel at \``fac.alexis.roeckel` at `gmail.com`\` to join
 3. [Lecture 3](lectures/hyper3.pdf) by Dorian Boully - 26/11/2025, 17h, Jussieu 15-25-502
 4. Lecture 4 by Jack - 03/11/2025, 17h, Jussieu 15-25-502
 5. [Lecture 5](lectures/hyper5.pdf) by Alexis Roeckel - 10/11/2025, 17h, Jussieu 15-25-502
+6. [Lecture 6](lectures/hyper6.pdf) by Pietro Taddia - 14/01/2026, 17h, Jussieu 15-16-101
 
 ### Future lectures
 
