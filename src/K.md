@@ -14,7 +14,9 @@ Please contact Titouan Olivier-Choupin at \``titouoc` at `gmail.com`\` to join.
 4. [Lecture 4](lectures/K4.pdf) by Alessandro Fenu - 05/11/2025, 16h, ENS Ulm
 5. [Lecture 5](lectures/K5.pdf) by Yuan Wang - 12/11/2025, 16h, ENS Ulm
 6. [Lecture 6](lectures/K6.pdf) by ? - 20/11/2025, 17h, ENS Ulm
-6. [Lecture 7](lectures/K7.pdf) by Justin Carel - 27/11/2025, 17h, ENS Ulm
+7. [Lecture 7](lectures/K7.pdf) by Justin Carel - 27/11/2025, 17h, ENS Ulm
+8. [Lecture 8](lectures/K8.pdf) by Alessandro Fenu - 11/12/2025, 17h, ENS Ulm
+9. [Lecture 9](lectures/K9.pdf) by Lucas Nistor - 07/01/2025, 14h, ENS Ulm
 
 ### Future lectures
 
