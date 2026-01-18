@@ -8,10 +8,12 @@ Please contact Ugo Fialho at \``ugo.fialhoda` at `gmail.com`\` to join.
 
 ## Lectures
 
+1. Lecture 1 by Théodore Doubinsky - 28/11/2025, 14h, 14-15-211
+2. Lecture 2 by Ugo Fialho - 16/01/2026, 16h15, Sophie Germain 1004
+
 ### Future lectures
 
-<!-- 1. Lecture 1 by ? - 28/11/2025, 14h, 14-15-211 -->
-
+3. Lecture 3 by Marine Cases - 19/01/2026, 18h30
 
 
 ## References :
