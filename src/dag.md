@@ -16,6 +16,9 @@ Please contact Marine Cases at \``marinecases345` at `gmail.com`\` to join.
 6. Lecture 6 by Paul - 20/10/2025, 15h30, ENS Ulm R3
 7. Lecture 7 by Luc Saccoccio--Le Guennec - 27/11/2025, 15h30, ENS Ulm R3
 8. Lecture 8[^1] & [9](lectures/dag9.pdf) by Grégoire & Davit Harutyunyan, 04/12/2025, 15h30, ENS Ulm R3
+10. Lecture 10 by Paul - 09/01/2026
+11. Lecture 11 by Bruno Valette - 14/01/2026, 17h, ENS Ulm W
+12. [Lecture 12](lectures/dag12.pdf) by Justin Carel - 30/01/2026, 17h, ENS Ulm Cartan
 
 [^1]: Following [Chapter 3](https://arxiv.org/pdf/math/0412512#chapter.3) of [_Notes on Grothendieck topologies, fibered categories and descent theory_](https://arxiv.org/abs/math/0412512) by Angelo Vistoli
 

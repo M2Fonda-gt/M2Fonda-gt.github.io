@@ -1,0 +1,460 @@
+\documentclass[12pt]{article}
+\usepackage{prelude}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\graphicspath{ {./DAG-working-group/} }
+\addbibresource{citations.bib}
+
+\title{DAG working group}
+\date{30/01/2026}
+\author{Justin Carel}
+
+\begin{document}
+\maketitle
+
+\noindent
+Goals for today, following \cite[ch.~4]{cnossen:ha}:\begin{itemize}[nosep]
+    \item Monoid and group objects (non-commutative ver.)
+    \item Looping, delooping
+    \item The recognition principle (for loop spaces)
+    \item Cancelled for no time: The recognition principle (for connective spectra)
+\end{itemize}
+
+
+\section{Monoids and Groups}
+
+In our journey towards higher algebra, it is natural to seek to understand monoids, groups, and more general algebraic structures in the context of $\infty$-categories.
+Three weeks ago, in his talk on symmetric monoidal categories, Paul already introduced \textit{commutative} monoid objects.
+Today we start by defining the non-commutative version.
+The construction is of course very similar in spirit to what he did with functors out of $\catFinSet^\catpart$.
+
+\subsection{Non-commutative version}
+
+What is a monoid in an $1$-category?
+It consists of an object $M$, together with a unit $*\to M$ and multiplication $M^2\to M$, satisfying unitality and associativity constraints.
+These can be conveniently encoded by asking that the (left) diagram with solid arrows commutes.
+% https://q.uiver.app/#q=WzAsMTYsWzEsOCwiTSJdLFsxLDEwLCIqIl0sWzEsNiwiTV4yIl0sWzEsNCwiTV4zIl0sWzEsMSwiMVxcdGV4dHstY2F0fSJdLFszLDEsIlxcaW5mdHlcXHRleHR7LWNhdH0iXSxbMywxMCwiKiJdLFszLDgsIk0iXSxbMyw2LCJNXjIiXSxbMyw0LCJNXjMiXSxbMywyLCJcXHZkb3RzIl0sWzAsOSwiXFx0ZXh0e3VuaXR9Il0sWzAsNywiXFx0ZXh0e1xcYmVnaW57dGFidWxhcn17IGMgfW11bHRpcGxpY2F0aW9uLFxcXFwgdW5pdGFsaXR5XFxlbmR7dGFidWxhcn19Il0sWzAsNSwiXFx0ZXh0e2Fzc29jaWF0aXZpdHl9Il0sWzIsMF0sWzIsMTFdLFsxLDBdLFsyLDBdLFswLDIsIiIsMix7Im9mZnNldCI6LTF9XSxbMCwyLCIiLDIseyJvZmZzZXQiOjF9XSxbMiwwLCIiLDIseyJvZmZzZXQiOi0yLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiwwLCIiLDIseyJvZmZzZXQiOjIsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDMsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDIsIiIsMix7Im9mZnNldCI6LTMsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDIsIiIsMix7Im9mZnNldCI6Mywic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzIsMywiIiwyLHsib2Zmc2V0IjotMiwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzIsMywiIiwyLHsib2Zmc2V0IjoyLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMywyLCIiLDIseyJvZmZzZXQiOjF9XSxbMywyLCIiLDIseyJvZmZzZXQiOi0xfV0sWzAsMSwiIiwyLHsib2Zmc2V0IjotMSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzAsMSwiIiwyLHsib2Zmc2V0IjoxLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNiw3XSxbNyw2LCIiLDIseyJvZmZzZXQiOi0xfV0sWzcsNiwiIiwxLHsib2Zmc2V0IjoxfV0sWzgsN10sWzcsOCwiIiwxLHsib2Zmc2V0IjotMX1dLFs3LDgsIiIsMSx7Im9mZnNldCI6MX1dLFs4LDcsIiIsMSx7Im9mZnNldCI6LTJ9XSxbOCw3LCIiLDEseyJvZmZzZXQiOjJ9XSxbOCw5XSxbOSw4LCIiLDEseyJvZmZzZXQiOi0zfV0sWzksOCwiIiwxLHsib2Zmc2V0IjozfV0sWzgsOSwiIiwxLHsib2Zmc2V0IjotMn1dLFs4LDksIiIsMSx7Im9mZnNldCI6Mn1dLFs5LDgsIiIsMSx7Im9mZnNldCI6LTF9XSxbMTAsOV0sWzksMTAsIiIsMSx7Im9mZnNldCI6LTN9XSxbOSwxMCwiIiwxLHsib2Zmc2V0IjozfV0sWzEwLDksIiIsMSx7Im9mZnNldCI6LTR9XSxbMTAsOSwiIiwxLHsib2Zmc2V0Ijo0fV0sWzksOCwiIiwxLHsib2Zmc2V0IjoxfV0sWzksMTAsIiIsMSx7Im9mZnNldCI6LTF9XSxbOSwxMCwiIiwxLHsib2Zmc2V0IjoxfV0sWzEwLDksIiIsMSx7Im9mZnNldCI6LTJ9XSxbMTAsOSwiIiwxLHsib2Zmc2V0IjoyfV0sWzE0LDE1LCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV1d
+\[\begin{tikzcd}[row sep=tiny, column sep=tiny]
+	&& {} \\
+	& {1\text{-cat}} && {\infty\text{-cat}} \\
+	&&& \vdots \\
+	\\
+	& {M^3} && {M^3} \\
+	{\text{associativity}} \\
+	& {M^2} && {M^2} \\
+	\begin{array}{c} \text{\begin{tabular}{ c }multiplication,\\ unitality\end{tabular}} \end{array} \\
+	& M && M \\
+	{\text{unit}} \\
+	& {*} && {*} \\
+	&& {}
+	\arrow[no head, from=1-3, to=12-3]
+	\arrow[from=3-4, to=5-4]
+	\arrow[shift left=4, from=3-4, to=5-4]
+	\arrow[shift right=4, from=3-4, to=5-4]
+	\arrow[shift left=2, from=3-4, to=5-4]
+	\arrow[shift right=2, from=3-4, to=5-4]
+	\arrow[shift left=3, dotted, from=5-2, to=7-2]
+	\arrow[shift right=3, dotted, from=5-2, to=7-2]
+	\arrow[shift right, from=5-2, to=7-2]
+	\arrow[shift left, from=5-2, to=7-2]
+	\arrow[shift left=3, from=5-4, to=3-4]
+	\arrow[shift right=3, from=5-4, to=3-4]
+	\arrow[shift left, from=5-4, to=3-4]
+	\arrow[shift right, from=5-4, to=3-4]
+	\arrow[shift left=3, from=5-4, to=7-4]
+	\arrow[shift right=3, from=5-4, to=7-4]
+	\arrow[shift left, from=5-4, to=7-4]
+	\arrow[shift right, from=5-4, to=7-4]
+	\arrow[dotted, from=7-2, to=5-2]
+	\arrow[shift left=2, dotted, from=7-2, to=5-2]
+	\arrow[shift right=2, dotted, from=7-2, to=5-2]
+	\arrow[from=7-2, to=9-2]
+	\arrow[shift left=2, dotted, from=7-2, to=9-2]
+	\arrow[shift right=2, dotted, from=7-2, to=9-2]
+	\arrow[from=7-4, to=5-4]
+	\arrow[shift left=2, from=7-4, to=5-4]
+	\arrow[shift right=2, from=7-4, to=5-4]
+	\arrow[from=7-4, to=9-4]
+	\arrow[shift left=2, from=7-4, to=9-4]
+	\arrow[shift right=2, from=7-4, to=9-4]
+	\arrow[shift left, from=9-2, to=7-2]
+	\arrow[shift right, from=9-2, to=7-2]
+	\arrow[shift left, dotted, from=9-2, to=11-2]
+	\arrow[shift right, dotted, from=9-2, to=11-2]
+	\arrow[shift left, from=9-4, to=7-4]
+	\arrow[shift right, from=9-4, to=7-4]
+	\arrow[shift left, from=9-4, to=11-4]
+	\arrow[shift right, from=9-4, to=11-4]
+	\arrow[from=11-2, to=9-2]
+	\arrow[from=11-4, to=9-4]
+\end{tikzcd}\]
+
+We then obtain for free commutation of the dotted arrows, which don't bring any new information to the table.
+Therefore, in a $1$-category, the monoids correspond to simplicial objects $M_\bullet$ such that for each $[n]\in\Delta$, the morphisms $e_i:M_n\to M_1$ obtained from the edge maps \[
+    [1]\xrightarrow{\set{i,i+1}}[n]
+\] identify $M_n$ with $M_1^n$.
+This is the so-called \textdef{Segal condition}.
+
+\begin{definition}
+    Let\/ $\cC$ an\/ $\infty$-category possessing a terminal object.
+    A \textdef{monoid}\footnotemark{} in\/ $\cC$ is a simplicial object\/ $M_\bullet$ of\/ $\cC$ verifying the Segal condition.
+    We denote by\/ \[
+        \catMon*(\cC) \subseteq \catFun*(\Delta^\op,\cC)
+    \] the full subcategory of monoids.
+    In the following we will almost always abuse language and write simply\/ $M$ both for the monoid\/ $M_\bullet$ and the underlying object\/ $M_1$.
+\end{definition}
+\footnotetext{Aka $E_1$-monoid or $E_1$-space.}
+
+In a $1$-category, a group object is usually presented as sporting a new inversion map satisfying a bunch of new relations.
+Attempting to generalise this directly would lead us straight to combinatorial hell, so we won't.
+Instead, we reformulate "being a group" as a \textit{property} on a monoid $M$.
+This is in fact very easy.
+
+\begin{definition}
+    A monoid with multiplication\/ $m$ is \textdef{grouplike}, or a \textdef{group}, if the shear map \[
+        (\pi_1,m) : \begin{aligned}M^2&\to M^2 \\(x,y)&\mapsto(x,xy)\end{aligned}
+    \] is an isomorphism.
+    Let\/ $\catGrp*(\cC)$ the full subcategory of\/ $\catMon*(\cC)$ consisting of grouplike monoids.
+\end{definition}
+
+\subsection{Relation to the commutative version}
+
+Recall that Paul defined commutative monoids in $\cC$ as the full subcategory $\catCMon(\cC)$ of functors $\catFinSet^\catpart\to\cC$ satisfying the analoguous Segal condition.
+In order to define the underlying non-commutative monoid it suffices to find the appropriate inclusion $\Delta^\op\to\catFinSet^\catpart$ along which to restrict.
+
+\medskip
+Fix $[n]\in\Delta$.
+We send it to $[n-1]\in\catFinSet$, the set with $n$ elements (indexed from $0$ to $n-1$).
+Note that the inner face maps act on a monoid by multiplying two adjacent elements in an $(n+1)$-tuple.
+We therefore assign to $d^i:[n+1]\to[n]$ (where $0<i<n+1$) the function $[n]\to[n-1]$ defined by \[
+    j\mapsto\begin{cases}
+    j & \text{if }0\leq j\leq i-1\\
+    j-1 &\text{if }i\leq j\leq n-1
+    .\end{cases}
+\]
+
+On the other hand the outer face maps $d^0,d^n$ acts on a monoid by forgetting the first (resp. last) element of an $n+1$-tuple.
+Thus we assign to $d^0$ the partial function sending $0$ nowhere and $1\leq j\leq n$ to $j-1$.
+Dually to $d^n$ assign the partial function fixing all $0\leq j\leq n-1$ and sending $n$ nowhere.
+
+
+Finally, a degeneracy map $s^i:[n]\to[n+1]$ simply inserts the unit at the corresponding index.
+We assign to it the function $[n-1]\to[n]$ defined by \[
+    j\mapsto\begin{cases}
+    j & \text{if }0\leq j\leq i-1\\
+    j+1 &\text{if }i\leq j\leq n-1
+    .\end{cases}
+\]
+
+It may be verified that these assignments verify the simplicial identities and extend to the desired fully faithful functor $\Delta^\op\to\catFinSet^\catpart$.
+
+
+\section{Looping, delooping}
+
+\subsection{Looping}
+
+In the homotopy I course, we have seen that the loop object $\Loop X$ of a pointed topological space admits a group structure in $\cathTop$.
+Recall the definition, \[\begin{tikzcd}
+	{\Loop X} & {\Path(X)} \\
+	{*} & X
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+	\arrow[from=1-2, to=2-2]
+	\arrow["x"', from=2-1, to=2-2]
+.\end{tikzcd}\]
+As the map $\Path(X)\to X$ is a fibration, this strict pullback is in fact a homotopy pullback; and as $\Path(X)\simeq*$ it may be better understood as the homotopy pullback $\Loop X=*\times_X*$.
+
+In a general $\infty$-category $\cC$, this is how we define the loop object of a pointed $X$.
+We will now endow it with a (natural!) group structure, which in the specific case of $\cC=\catAn$ retrieves the one we know and love upon passing to the homotopy category.
+In order to perform this feat, we seek a simplicial object extending $\Loop X\to*$.
+There is a natural candidate one, the \v Cech nerve of the map $x:*\to X$!
+
+Recall that this is a simplicial object $\vC(x)_\bullet$ whose $n$-simplices are given by \[
+    \vC(x)_n=*\times_X*\times_X\cdots\times_X*=*^{n+1}_X
+.\]
+Some abstract nonsense (see \cite[lem.~4.1.9]{cnossen:ha} for details) inform us that the edge maps $e_i : \vC(x)_n\to\vC(x)_1=\Loop X$ do indeed identify $\vC(x)_n$ with $\Loop_X^n$.
+
+\begin{remark}\label{rmk:cech-functorial}
+    The \v Cech nerve is functorial, and can be written as the composite \[
+        \vC_\bullet : \catFun^*([1],\cC)\simeq\catFun*([1]^\op,\cC)\xrightarrow{j_*}\catFun*(\Delta^\op_+,\cC)\xrightarrow{i^*}\catFun*(\Delta^\op,\cC)
+    ,\] where $j_*$ is the right Kan extension along the inclusion $j:[1]^\op\to\Delta_+^\op$ sending $0$ to $[-1]$ and $1$ to $[0]$, and $i^*$ is the restriction along the inclusion $i:\Delta^\op\to\Delta^\op_+$.
+    See \cite[def.~4.1.6 and disc.~4.1.7]{cnossen:ha} for details.
+\end{remark}
+
+Let's check that this is sensible by looking closer at the case of $\catTop$ with the Quillen model structure.
+By replacing the maps $*\to X$ with the fibration $\Path(X)\to X$, we can compute explicitly \[
+    \vC(x)_n = \Path(X)^{n+1}_X
+.\]
+I like to view this as the space of $(n+1)$ tendrils extending from $x$ and rejoigning at some other unspecified point.
+
+\begin{figure}[p]
+    \centering
+    \begin{subfigure}[t]{0.4\textwidth}
+        \includegraphics[width=\linewidth]{an-element-of-Cech.png}
+        \caption{An element of $\vC(x)_3$.}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.55\textwidth}
+        \includegraphics[width=\linewidth]{identitification-with-loops.png}
+        \caption{The map $e_{012}\coloneqq(e_0,e_1,e_2)$.}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.6\textwidth}
+        \includegraphics[width=\linewidth]{multiplication-by-Cech3.png}
+        \caption{The map $(\Loop X)^3\to(\Loop X)^2$ induced by $d^1$.}
+    \end{subfigure}
+    \caption{The concrete group structure on $\Loop X$ obtained from the abstract group structure on $\vC(x)$.}
+    \label{fig:concrete-cech-nerve}
+\end{figure}
+
+On figure \ref{fig:concrete-cech-nerve}, we see that the "abstract" monoid structure on $\vC(x)$ corresponds exactly to the "concrete" monoid structure on $\Loop X$.
+This is reassuring.
+Now examples are good and all, but we still have to prove something.
+
+\begin{proposition}\label{prop:loop-group}
+    Let $x:*\to X$ a pointed object in an $\infty$-category $\cC$ with the appropriate pullbacks.
+    Then $\vC(x)$ is a grouplike monoid with underlying object $\Loop X$.
+\end{proposition}
+
+We will write equally $\Loop X$ for the object and the group object.
+When the two need to be distinguished, the object shall be denoted by $(\Loop X)_1$.
+
+\begin{proof}
+    Because we have admitted that $\vC(x)_n\simeq(\Loop X)^n$ through $(e_0,\ldots,e_{n-1})$, it remains only to check that the shear map $(\pi_1,m):\vC(x)_2\to\vC(x)_2$ is an isomorphism.
+    Moreover it suffices to check the statement in the case of animae by an application of Yoneda lemma.
+    Indeed, for any object $Y$ of $\cC$, \[
+        \Map(Y,\Loop X) = \Loop\Map(Y,X)
+    \] and the shear map for $X$ is sent to the shear map for $\Map(Y,X)$.
+    Furthermore, whether a map is an isomorphism can be tested at the level of homotopy categories.
+    But we already know that (the weak homotopy type of) the loop space of a pointed topological space is a group object!
+\end{proof}
+
+
+\subsection{Delooping}
+
+Much like how it is false in general that $\Sigma\Loop X\simeq X$, we cannot always recover $X$ from $\Loop X$.
+However, we will see shortly that in the case of animae, we actually remember the whole connected component of the chosen point $x$.
+The best approximation of an inverse operation to $\Loop{}$ is the \textdef{classifying space} $\B{}$.
+
+\begin{definition}
+    Let $\cC$ an $\infty$-category with the appropriate geometric realizations, and $M_\bullet$ a monoid.
+    Its \textdef{classifying space} $\B M$ is the colimit \[
+        \B M = |M| = \colim_{\Delta^\op}M_\bullet \in\cC
+    .\]
+    This object is naturally pointed by the map $*=M_0\to|M|=\B M$, defining a functor \[
+        \B:\catMon*(\cC)\to\cC_*
+    .\]
+\end{definition}
+
+\begin{remark}
+    By the pointwise formula for Kan extensions, the functor $B$ may be expressed as the composite \[
+        \catMon*(\cC)\subseteq\catFun*(\Delta^\op,\cC)\xrightarrow{i_!}\catFun*(\Delta_+^\op,\cC)\xrightarrow{j^*}\catFun*([1]^\op,\cC)
+    ,\] where $i_!$ is the left Kan extension along the inclusion $i:\Delta\to\Delta_+$ and $j^*$ the restriction along the same inclusion as in remark \ref{rmk:cech-functorial}.
+\end{remark}
+
+\begin{proposition}
+    Let $\cC$ an $\infty$-category with finite limits and geometric realizations.
+    The loop space and classifying space functors define an adjunction \[
+        \B : \catMon*(\cC) \dashv\, \cC_* : \Loop
+    .\]
+\end{proposition}
+\begin{proof}
+    We have a more general adjunction \[\begin{tikzcd}
+        {\catFun*(\Delta^\op,\cC)} & {\catFun*(\Delta_+^\op,\cC)} & {\catFun*([1]^\op,\cC)}
+        \arrow[""{name=0, anchor=center, inner sep=0}, "{i_!}", shift left=2, from=1-1, to=1-2]
+        \arrow[""{name=1, anchor=center, inner sep=0}, "{i^*}", shift left=2, from=1-2, to=1-1]
+        \arrow[""{name=2, anchor=center, inner sep=0}, "{j^*}", shift left=2, from=1-2, to=1-3]
+        \arrow[""{name=3, anchor=center, inner sep=0}, "{j_*}", shift left=2, from=1-3, to=1-2]
+        \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=1]
+        \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=2, to=3]
+    \end{tikzcd}\] of which $\B{}$ and $\Loop{}$ are the restriction to full subcategories.
+\end{proof}
+
+
+\begin{remark}
+    Remark that over animae (or any $\infty$-topos), $\cat B$ preserves products.
+    In particular, it preserves monoid and group objects.
+    If we believe in the heuristic that an abelian group is a group object in group objects, this would mean that whenever $A$ is an abelian group object, so is $\B A$.
+    I wanted to prove this but there was no time.
+\end{remark}
+
+
+\section{The recognition principle for loop spaces}
+
+What happens to $\Loop\B M$ if $M$ was already a group?
+Under which conditions does $X$ equal $\B\Loop X$?
+All of those deeply existential questions and more are answered by the following
+\begin{theorem}[Recognition principle]\label{thm:recog}
+    Let\/ $M$ a monoid in\/ $\catAn$ and let\/ $X$ a pointed anima.
+    Then \begin{enumerate}
+        \item\label{thm:recog:isom-iff-grp} The unit map\/ $M\to\Loop\B M$ is an isomorphism if and only if\/ $M$ is grouplike.
+        \item\label{thm:recog:connected} The pointed anima\/ $\B M$ is always connected, and in fact
+        \item\label{thm:recog:counit} The counit\/ $\B\Loop X\to X$ is the inclusion of the connected component of the basepoint.
+    \end{enumerate}
+    In particular, the adjunction $\B{}\dashv\Loop{}$ restricts to an equivalence $\catGrp*(\catAn)\to\catAn_*^{\geq1}$ between animated groups and pointed connected animae.
+\end{theorem}
+
+\framebox{Slogan in \textit{flexeur} language: any grouplike $E_1$-space is equivalent to a loop space.}
+
+\begin{remark}
+    The same is true in a presheaf topos because all these constructions are taken pointwise.
+    In fact it holds in any $\infty$-topos, because left-exact localisation commutes with both colimits (hence $\B{}$) and finite limits (hence $\Loop{}$).
+\end{remark}
+
+\begin{proof}\cite[p.~131]{cnossen:ha}
+    We first prove claim \ref{thm:recog:connected}.
+    The $\pi_0:\catAn\to\catSet$ is left adjoint to inclusion of sets as discrete spaces, so commutes with colimits.
+    Hence \[
+        \pi_0(\B M) = \colim_{\Delta^\op}\pi_0(M_\bullet) = \colim_{[n]\in\Delta^\op} \left[
+            \begin{tikzcd}[row sep=tiny,column sep=small]
+                \cdots & {\pi_0M^2} & \pi_0M & {*}
+                \arrow[dotted, from=1-1, to=1-2]
+                \arrow[from=1-2, to=1-3]
+                \arrow[shift left=2, from=1-2, to=1-3]
+                \arrow[shift right=2, from=1-2, to=1-3]
+                \arrow[shift left, from=1-3, to=1-2]
+                \arrow[shift right, from=1-3, to=1-2]
+                \arrow[shift left, from=1-3, to=1-4]
+                \arrow[shift right, from=1-3, to=1-4]
+                \arrow[from=1-4, to=1-3]
+            \end{tikzcd}
+        \right] = *
+    \] so that $\B M$ is connected.
+
+    Assume \ref{thm:recog:isom-iff-grp} for now and prove \ref{thm:recog:counit}.
+    As $\B\Loop X$ is connected, the counit lands in the connected component $X^\circ$, and we have to show $\B\Loop X\to X^\circ$ is an isomorphism.
+    Because both sides are connected and homotopy groups form a conservative family of functors, it suffices to check that \[
+        \Loop X\simeq\Loop\B\Loop X\to\Loop X^\circ
+    \] is an isomorphism.
+    This is by definition of $\Loop{}$.
+
+    It remains to show the most interesting claim \ref{thm:recog:isom-iff-grp}.
+    The forward direction follows from proposition \ref{prop:loop-group}.
+    For the converse direction, it suffices to prove that $M_1\to(\Loop\B M)_1$ is an isomorphism as it will then induce an isomorphism at all levels.
+    This map comes from the commutative square \[\begin{tikzcd}
+        M_1\ar[d,"d_1"]\ar[r,"d_0"] & M_0\ar[d]\simeq* \\
+        M_0\simeq*\ar[r] & \B M
+    ,\end{tikzcd}\] that we must check is cartesian.
+
+    \medskip
+    For this, we shall use the following \vskip-8pt
+    \begin{theorem}[Universality of colimits {\cite[6.1.3.9]{HTT}}]
+        Let\/ $I$ a small\/ $\infty$-categories,\/ $\bar F,\bar G:I^\triangleright\to\catAn$ cocones over functors\/ $F,G$, and $\bar\alpha:\bar F\to\bar G$ a natural transformation.
+        Assume that the restriction\/ $\alpha:F\to G$ is cartesian, in the sense that for every\/ $i\to j$ in\/ $I$ the square \[\begin{tikzcd}
+            F(i)\ar[d,"\alpha_i"]\ar[r] & F(j)\ar[d,"\alpha_j"] \\
+            G(i)\ar[r] & G(j)
+        \end{tikzcd}\] is cartesian.
+        Assume further\/ $\bar G$ to be a colimit.
+        Then\/ $\bar F$ is a colimit if and only if\/ $\bar\alpha$ is cartesian, which is to say all the squares \[\begin{tikzcd}
+            F(i)\ar[d,"\alpha_i"]\ar[r] & \bar F(\infty)\ar[d,"\bar\alpha_\infty"] \\
+            G(i)\ar[r] & \bar G(\infty)
+        \end{tikzcd}\] are cartesian also.
+    \end{theorem}
+    We admit this and carry on with the proof of the recognition principle.
+
+    Let $I=\Delta^\op$ so that $I^\triangleright=\Delta_+^\op$, as well as $G=M$ and $\bar G(\infty)=\B M$.
+    Set $\bar F[n]=\bar G[n+1]$, obtained from $\bar G$ by discarding the purple arrows below:
+    % https://q.uiver.app/#q=WzAsMTIsWzMsMSwiKiJdLFsyLDEsIk0iXSxbMSwxLCJNXjIiXSxbMCwxLCJcXGNkb3RzIl0sWzQsMSwiXFxCIE0iXSxbMywwLCJcXGJhciBGWy0xXSJdLFs0LDIsIlxcYmFyIEdbLTFdIixbMjQwLDYwLDYwLDFdXSxbMywyLCJcXGJhciBHWzBdIixbMjQwLDYwLDYwLDFdXSxbMiwyLCJcXGJhciBHWzFdIixbMjQwLDYwLDYwLDFdXSxbMSwyLCJcXGJhciBHWzJdIixbMjQwLDYwLDYwLDFdXSxbMiwwLCJcXGJhciBGWzBdIl0sWzEsMCwiXFxiYXIgRlsxXSJdLFswLDEsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMSwwLCJkXjAiLDAseyJvZmZzZXQiOi0xfV0sWzEsMCwiZF4xIiwyLHsib2Zmc2V0IjoxLCJjb2xvdXIiOlsyNDAsNjAsNjBdfSxbMjQwLDYwLDYwLDFdXSxbMiwxXSxbMSwyLCIiLDEseyJvZmZzZXQiOi0xLCJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzEsMiwiIiwxLHsib2Zmc2V0IjoxfV0sWzIsMSwiZF4wIiwwLHsib2Zmc2V0IjotMn1dLFsyLDEsImReMiIsMix7Im9mZnNldCI6MiwiY29sb3VyIjpbMjQwLDYwLDYwXX0sWzI0MCw2MCw2MCwxXV0sWzIsM10sWzMsMiwiIiwxLHsib2Zmc2V0IjotM31dLFszLDIsIiIsMSx7Im9mZnNldCI6MywiY29sb3VyIjpbMjQwLDYwLDYwXX1dLFsyLDMsIiIsMSx7Im9mZnNldCI6LTIsImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMiwzLCIiLDEseyJvZmZzZXQiOjJ9XSxbMywyLCIiLDEseyJvZmZzZXQiOi0xfV0sWzMsMiwiIiwxLHsib2Zmc2V0IjoxfV0sWzAsNCwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXX1dXQ==
+    \[\begin{tikzcd}[row sep=tiny]
+        & {\bar F[1]} & {\bar F[0]} & {\bar F[-1]} \\
+        \cdots & {M^2} & M & {*} & {\B M} \\
+        & \textcolor{rgb,255:red,92;green,92;blue,214}{{\bar G[2]}} & \textcolor{rgb,255:red,92;green,92;blue,214}{{\bar G[1]}} & \textcolor{rgb,255:red,92;green,92;blue,214}{{\bar G[0]}} & \textcolor{rgb,255:red,92;green,92;blue,214}{{\bar G[-1]}}
+        \arrow[shift left=3, from=2-1, to=2-2]
+        \arrow[shift right=3, color={rgb,255:red,92;green,92;blue,214}, from=2-1, to=2-2]
+        \arrow[shift left, from=2-1, to=2-2]
+        \arrow[shift right, from=2-1, to=2-2]
+        \arrow[from=2-2, to=2-1]
+        \arrow[shift left=2, color={rgb,255:red,92;green,92;blue,214}, from=2-2, to=2-1]
+        \arrow[shift right=2, from=2-2, to=2-1]
+        \arrow[from=2-2, to=2-3]
+        \arrow["{d^0}", shift left=2, from=2-2, to=2-3]
+        \arrow["{d^2}"', shift right=2, color={rgb,255:red,92;green,92;blue,214}, from=2-2, to=2-3]
+        \arrow[shift left, color={rgb,255:red,92;green,92;blue,214}, from=2-3, to=2-2]
+        \arrow[shift right, from=2-3, to=2-2]
+        \arrow["{d^0}", shift left, from=2-3, to=2-4]
+        \arrow["{d^1}"', shift right, color={rgb,255:red,92;green,92;blue,214}, from=2-3, to=2-4]
+        \arrow[color={rgb,255:red,92;green,92;blue,214}, from=2-4, to=2-3]
+        \arrow[color={rgb,255:red,92;green,92;blue,214}, from=2-4, to=2-5]
+    \end{tikzcd}\]
+    Define also $\bar\alpha_n=d_{n+1}$.
+    If we knew that $\alpha$ was cartesian and $\bar F$ a colimit, then universality would give us exactly the required cartesian square for $i=0$.
+    That $\bar F$ is a colimit follows from another very general lemma, whose statement and proof we defer until later.
+    Now for cartesianity of $\alpha$, we prove this by cases.
+
+    \begin{enumerate}[C{a}se 1 --]
+        \item\label{thm:recog:step:shear} The map $d^1:[1]\to[0]$.
+        In this case, the square reduces to \[\begin{tikzcd}
+            M^2 \ar[d,"\pi_0"']\ar[r,"m"] & M \ar[d] \\
+            M \ar[r] & *
+        \end{tikzcd}\] which is a pullback precisely because $M$ is grouplike.
+
+        \item The map $d^0:[n+1]\to[n]$.
+        The square reduces to \[\begin{tikzcd}[column sep=22ex]
+            M^{n+2} \ar[d,"(m_0\ldots m_{n+1})\mapsto(m_0\ldots m_n)"']\ar[r,"(m_0\ldots m_{n+1})\mapsto(m_1\ldots m_{n+1})"] & M^{n+1} \ar[d,"(m_0\ldots m_n)\mapsto(m_0\ldots m_{n-1})"]\\
+            M^{n+1} \ar[r,"(m_0\ldots m_n)\mapsto (m_1\ldots m_n)"'] & M^n
+        \end{tikzcd}\] which is always a pullback.
+
+        \item The map $d^i:[n+1]\to[n]$ for $0<i<n+1$.
+        The square reduces to \[\begin{tikzcd}[column sep=31ex]
+            M^{n+2} \ar[d,"(m_0\ldots m_{n+1})\mapsto(m_0\ldots m_n)"']\ar[r,"(m_0\ldots m_{n+1})\mapsto(m_0\ldots{,}m_{i-1}m_i{,}\ldots m_{n+1})"] & M^{n+1} \ar[d,"(m_0\ldots m_n)\mapsto(m_0\ldots m_{n-1})"]\\
+            M^{n+1} \ar[r,"(m_0\ldots m_n)\mapsto (m_0\ldots{,}m_{i-1}m_i{,}\ldots m_n)"'] & M^n
+        \end{tikzcd}\] which is also always a pullback.
+
+        \item The map $d^{n+1}:[n+1]\to[n]$.
+        The square reduces to \[\begin{tikzcd}[column sep=24ex]
+            M^{n+2} \ar[d,"(m_0\ldots m_{n+1})\mapsto(m_0\ldots m_n)"']\ar[r,"(m_0\ldots m_{n+1})\mapsto(m_0\ldots m_nm_{n+1})"] & M^{n+1} \ar[d,"(m_0\ldots m_n)\mapsto(m_0\ldots m_{n-1})"]\\
+            M^{n+1} \ar[r,"(m_0\ldots m_n)\mapsto (m_0\ldots m_{n-1})"'] & M^n
+        \end{tikzcd}\] which is the square of \ref{thm:recog:step:shear} multiplied by $M^n$, hence a pullback.
+
+        \item The map $s^i:[n]\to[n+1]$.
+        As $s^i$ is a section of $d^i$, by the pasting law and the previous steps, the required square is a pullback.
+
+        \item A general map in $\Delta_+^\op$.
+        It factors as a product of faces and degeneracies.
+        By the pasting law, the required square is a pullback.
+    \end{enumerate}
+    This finishes the proof.
+\end{proof}
+
+As promised, here is the lemma for checking that $\bar F$ is a colimit.
+Introduce first the category of extra degeneracies, $\Delta_+^\catdeg$, as the wide subcategory of $\Delta$ whose morphisms are the maps $\varphi: [n]\to[m]$ satisfying $\varphi(n)=m$.
+This includes all the codegeneracies, and all the coface maps save for $d_{n+1}:[n]\to[n+1]$.
+As a result, a functor out of $(\Delta_+^\catdeg)^\op$ looks like a diagram
+% https://q.uiver.app/#q=WzAsNCxbMywwLCJYX3stMSsxfSJdLFsyLDAsIlhfezArMX0iXSxbMSwwLCJYX3sxKzF9Il0sWzAsMCwiXFxjZG90cyJdLFswLDEsIiIsMCx7ImNvbG91ciI6WzAsNjAsNjBdfV0sWzEsMCwiIiwwLHsib2Zmc2V0IjotMX1dLFsyLDFdLFsxLDIsIiIsMSx7Im9mZnNldCI6LTEsImNvbG91ciI6WzAsNjAsNjBdfV0sWzEsMiwiIiwxLHsib2Zmc2V0IjoxfV0sWzIsMSwiIiwwLHsib2Zmc2V0IjotMn1dLFsyLDNdLFszLDIsIiIsMSx7Im9mZnNldCI6LTN9XSxbMiwzLCIiLDEseyJvZmZzZXQiOi0yLCJjb2xvdXIiOlswLDYwLDYwXX1dLFsyLDMsIiIsMSx7Im9mZnNldCI6Mn1dLFszLDIsIiIsMSx7Im9mZnNldCI6LTF9XSxbMywyLCIiLDEseyJvZmZzZXQiOjF9XV0=
+\[\begin{tikzcd}[row sep=tiny]
+	\cdots & {X_{1+1}} & {X_{0+1}} & {X_{-1+1}}
+	\arrow[shift left=3, from=1-1, to=1-2]
+	\arrow[shift left, from=1-1, to=1-2]
+	\arrow[shift right, from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-1]
+	\arrow[shift left=2, color={rgb,255:red,214;green,92;blue,92}, from=1-2, to=1-1]
+	\arrow[shift right=2, from=1-2, to=1-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow[shift left=2, from=1-2, to=1-3]
+	\arrow[shift left, color={rgb,255:red,214;green,92;blue,92}, from=1-3, to=1-2]
+	\arrow[shift right, from=1-3, to=1-2]
+	\arrow[shift left, from=1-3, to=1-4]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=1-4, to=1-3]
+\end{tikzcd}\] in which we understand the red arrows as "extra degeneracies".
+The index notation was not chosen randomly; there is a faithful functor $(+1):\Delta_+\to\Delta_+^\catdeg$ sending $[n]$ to $[n+1]$.
+
+\begin{lemma}[Extra degeneracies argument]
+    Let $\cC$ and $\infty$-category and $\bar X:\Delta_+^\op\to\cC$ an augmented simplicial object.
+    Suppose that $\bar X$ has extra degeneracies, in the sense that $\bar X=\bar Y|_{\Delta_+}$ for some $\bar Y:(\Delta_+^\catdeg)^\op\to\cC$.
+    Then $\bar X$ is a colimit cocone.
+\end{lemma}
+
+\begin{proof}
+    The composite inclusion $\Delta\subseteq\Delta_+\hookrightarrow\Delta_+^\catdeg$ is left adjoint to the inclusion $\Delta_+^\catdeg\subseteq\Delta$.
+    Indeed for any natural numbers $n$, $m$ any ordered map $\varphi:[n]\to[m]$ extends uniquely to $[n+1]\to[m]$ if we impose the condition that $\varphi(n+1)=m$.
+    By \cite[cor.~19.5.6]{cnossen:ha}, this implies that $(+1)|_\Delta$ is initial, and hence that \[
+        (+1)^\op:\Delta^\op\to(\Delta_+^\catdeg)^\op
+    \] is final.
+    In other words \[
+        \colim_{\Delta^\op} X_\bullet = \colim_{\Delta^\op} Y_{\bullet+1} = \colim_{(\Delta_+^\catdeg)^\op} Y_\bullet = Y_0 = X_{-1}
+    \] because $[0]$ is terminal in $(\Delta_+^\catdeg)^\op$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Bibliography
+\printbibliography{}
+\end{document}
