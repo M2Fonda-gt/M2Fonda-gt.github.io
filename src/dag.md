@@ -28,8 +28,6 @@ Please contact Marine Cases at \``marinecases345` at `gmail.com`\` to join.
 [^2]: Following Chapter 3 of [_Stable Homotopy Theory and Higher Algebra_](https://drive.google.com/file/d/1ivHDIqclbg2hxmUEMTqmj2TnsAHQxVg9/view) by Bastiaan Cnossen
 [^3]: Following [Chapter 3](https://arxiv.org/pdf/math/0412512#chapter.3) of [_Notes on Grothendieck topologies, fibered categories and descent theory_](https://arxiv.org/abs/math/0412512) by Angelo Vistoli
 
-### Future lectures
-
 
 ## References :
 
