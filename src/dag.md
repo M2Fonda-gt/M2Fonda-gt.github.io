@@ -19,6 +19,10 @@ Please contact Marine Cases at \``marinecases345` at `gmail.com`\` to join.
 10. Lecture 10 by Paul Rodriguez - 09/01/2026, 17h, ENS Ulm Verdier
 11. Lecture 11 by Bruno Valette - 14/01/2026, 17h, ENS Ulm W
 12. [Lecture 12](lectures/dag12.pdf) by Justin Carel - 30/01/2026, 17h, ENS Ulm Cartan
+13. Lecture 13 by Davit Eghiazarian - 06/02/2026, 17h, ENS Ulm Verdier
+14. Lecture 14 by Grzegorz Czech - 06/03/2026, 17h, ENS Ulm Verdier
+15. Lecture 15 by Justin Carel - 13/03/2026, 17h, ENS Ulm Verdier
+16. Lecture 16 by Alexis Miller - 10/04/2026, 17h, ENS Ulm Verdier
 
 [^1]: Following Section 2 of [_Some basic category theory_](lectures/dag_dg-cat_jiangfan.pdf) by Jiangfan Y.
 [^2]: Following Chapter 3 of [_Stable Homotopy Theory and Higher Algebra_](https://drive.google.com/file/d/1ivHDIqclbg2hxmUEMTqmj2TnsAHQxVg9/view) by Bastiaan Cnossen
